@@ -1,0 +1,13 @@
+html, body {
+    min-width: 320px;
+    height: 100%;
+    font-family: 'Product_Sans_Regular';
+    text-align: center;
+  }
+  
+  body{
+    font-size: 1.4rem;
+    line-height: 1.4;
+    color:#333;
+    background-color: #fff;
+  }
