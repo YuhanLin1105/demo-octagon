@@ -3,27 +3,34 @@ import React, { Component } from 'react';
 import classes from './Layout.css';
 import HtmlComment from '../../components/HtmlComment/HtmlComment';
 import NavBar from '../../components/NavBar/NavBar';
-
+import SideDrawer from '../../components/NavBar/SideDrawer/SideDrawer';
+import MainContent from '../MainContent/MainContent';
 
 class Layout extends Component {
     state = {
-        sideDrawer:{
-            show:false
+        sideDrawer: {
+            isOpen: false
         }
-      }
-    
-      sideDrawerCloseHandler = () => {
+    }
+
+    sideDrawerCloseHandler = () => {
         this.setState({
-          showSideDrawer: false
+            sideDrawer: {
+                isOpen: false
+            }
         })
-      }
-      sideDrawerOpenHandler = () => {
+    }
+
+    sideDrawerOpenHandler = () => {
+        console.log('clicked');
         this.setState((prevState) => {
-          return {
-            showSideDrawer: !prevState.showSideDrawer
-          };
+            return {
+                sideDrawer: {
+                    isOpen: !prevState.sideDrawer.isOpen
+                }
+            };
         });
-      }
+    }
 
 
     render() {
@@ -31,13 +38,18 @@ class Layout extends Component {
             <React.Fragment>
                 <HtmlComment text="Container" />
                 <div className={classes.Container}>
+                    <HtmlComment text="SideDrawer" />
+                    <SideDrawer isOpen={this.state.sideDrawer.isOpen} />
                     <HtmlComment text="NavBar" />
-                    <NavBar fixedTop />
+                    <NavBar
+                        fixedTop
+                        toggleClicked={this.sideDrawerOpenHandler}
+                        toggleIsOpen={this.state.sideDrawer.isOpen} />
                     <main className={classes.MainContent}>
-                        main
+                        <HtmlComment text="MainContent" />
+                        {/* <MainContent/> */}asdf
                     </main>
                 </div>
-
             </React.Fragment>
         );
 

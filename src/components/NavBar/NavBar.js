@@ -18,7 +18,9 @@ const navBar = (props) => {
                 <div className={classes.padLeft}>
                     <Logo />
                 </div>
-                <DrawerToggle />
+                <DrawerToggle 
+                    clicked={props.toggleClicked}
+                    isOpen={props.toggleIsOpen}/>
                 <nav className={[classes.padRight, classes.notSmSreen].join(' ')}>
                     <NavItems />
                 </nav>

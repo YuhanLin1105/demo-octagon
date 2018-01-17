@@ -7,23 +7,25 @@
   
   body{  
     min-width: 320px;
-    height: 100%;
+    min-height: 100vh;
     font-family: 'Product Sans', Arial, sans-serif;;
     font-size: 1.4rem;
     line-height: 1.4;
     color:#333;
     background-color: #fff;
+    overflow: hidden;
   }
 
-  .Container{
+  .Container{    
     width: 100%;
-    min-height: 100vh;
+    /* min-height: 100vh; */
     display: flex;
     flex-direction: column;
   }
 
   .MainContent{
-    flex: 1 1 auto;
+    flex:  0 0 auto;
     position: relative;/* need this to position inner content */
-    overflow-y: auto;
+    overflow-y: auto; 
+    height: 100%;
   }

@@ -3,9 +3,10 @@
     flex:0 0 auto;
     justify-content: space-between;
     align-items: center;
-    height: 5.8rem;
+    height: 6rem;
     border-bottom: 1px solid #044da1;
     z-index: 1030;
+    background-color: white;
 }
 
 

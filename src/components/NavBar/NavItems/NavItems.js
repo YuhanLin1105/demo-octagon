@@ -7,15 +7,14 @@ const NavItems = (props) =>{
     let styles=[classes.NavItems];
 
     if(props.col){
-        styles.push(classes.Row);
+        styles.push(classes.col);
     }else {
-        styles.push(classes.Col);
+        styles.push(classes.row);
     }
 
-    styles = styles.join(' ');
 
     return(
-        <ul className={styles}>
+        <ul className={styles.join(' ')}>
             <Navitem>Our partnership</Navitem>
             <Navitem>Our profile</Navitem>
         </ul>
