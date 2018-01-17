@@ -1,0 +1,12 @@
+.NavItems{
+    display:flex;
+    list-style: none;
+    letter-spacing: 2.8px;
+    align-items: center;
+   
+}
+
+.Row{
+    font-size: 1.2rem;
+    align-items: center;
+}

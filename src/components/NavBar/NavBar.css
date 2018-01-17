@@ -1,0 +1,65 @@
+.NavBar{
+    display:flex;
+    flex:0 0 auto;
+    justify-content: space-between;
+    align-items: center;
+    height: 5.8rem;
+    border-bottom: 1px solid #044da1;
+    z-index: 1030;
+}
+
+
+
+
+
+
+
+/* .fixedTop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+} */
+
+@media screen and (max-width:768px){
+    .notSmSreen{
+        display: none;
+    }
+}
+
+
+@media (min-width: 768px){
+    .padLeft
+    {
+        padding-left: 4%;
+    }
+
+    .padRight{
+        padding-right: 4%;
+    }
+}
+
+
+@media (min-width: 1024px){
+    .padLeft
+    {
+        padding-left: 5%;
+    }
+
+    .padRight{
+        padding-right: 5%;
+    }
+}
+
+
+@media (min-width: 1440px){
+    .padLeft
+     {
+        padding-left: 6%;
+    }
+
+    .padRight{
+        padding-right: 6%;
+    }
+}

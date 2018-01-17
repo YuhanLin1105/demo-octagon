@@ -1,13 +1,29 @@
-html, body {
+  /* :root{
+    --color-primary:#044da1;
+    --color-white:#fff;
+    --color-gray:#ddd;
+    --color-dark:#000;
+  } */
+  
+  body{  
     min-width: 320px;
     height: 100%;
-    font-family: 'Product_Sans_Regular';
-    text-align: center;
-  }
-  
-  body{
+    font-family: 'Product Sans', Arial, sans-serif;;
     font-size: 1.4rem;
     line-height: 1.4;
     color:#333;
     background-color: #fff;
+  }
+
+  .Container{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .MainContent{
+    flex: 1 1 auto;
+    position: relative;/* need this to position inner content */
+    overflow-y: auto;
   }
