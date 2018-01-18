@@ -1,17 +1,10 @@
 .NavBar{
     display:flex;
-    flex:0 0 auto;
     justify-content: space-between;
     align-items: center;
-    height: 6rem;
-    border-bottom: 1px solid #044da1;
-    z-index: 1030;
+    height: 7rem;
     background-color: white;
 }
-
-
-
-
 
 
 
@@ -23,7 +16,7 @@
     z-index: 1030;
 } */
 
-@media screen and (max-width:768px){
+@media screen and (max-width:767px){
     .notSmSreen{
         display: none;
     }
@@ -31,6 +24,9 @@
 
 
 @media (min-width: 768px){
+    .NavBar{
+        height:5.5rem;
+    }
     .padLeft
     {
         padding-left: 4%;
