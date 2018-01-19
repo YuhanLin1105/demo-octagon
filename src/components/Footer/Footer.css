@@ -1,0 +1,94 @@
+.Container{
+    padding: 4rem 1.5rem;
+    background-color: #ddd;
+    color: black;
+    font-size: 1.2rem;
+    text-align: center;
+    margin: auto;
+}
+
+.ImageLink{
+    width:100%;
+    margin: 0.6rem 0;
+}
+
+.TextLink{
+
+    
+}
+
+.TextLink a{
+    display: inline-block;
+}
+
+
+.TextLink a,
+.TextLink p{
+    margin:0.6rem 0;
+}
+
+.TextLinkPrivate{
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+
+.btnLogo{
+    display: none;
+}
+
+.btnYoutube{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    text-indent: 100%;
+    overflow: hidden;
+    background: url(http://www.doosan.com/en/wp-content/themes/dstheme/css/img/ico_footer.png) -86px 0 no-repeat;
+
+    margin-right: 0.5rem;
+}
+
+.btnRss{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    text-indent: 100%;
+    overflow: hidden;
+    background: url(http://www.doosan.com/en/wp-content/themes/dstheme/css/img/ico_footer.png) 0 -30px no-repeat #4f5964;
+}
+
+@media (min-width:425px){
+    .Container{
+        font-size: 1.4rem;
+    }
+}
+
+@media (min-width:768px){
+    .Container{
+        width:75rem;
+        font-size: 1.2rem;
+        text-align: right;
+    }
+    .btnLogo{
+        display: block;
+        float: left;
+    }
+}
+
+@media (min-width:992px){
+    .Container{
+        width:97rem;
+    }
+}
+
+@media (min-width:1200px){
+    .Container{
+        width:117rem;
+    }
+}
+
+@media (min-width:1400px){
+    .Container{
+        font-size: 1.4rem;
+    }
+}

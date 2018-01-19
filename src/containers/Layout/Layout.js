@@ -5,6 +5,9 @@ import HtmlComment from '../../components/HtmlComment/HtmlComment';
 import NavBar from '../../components/NavBar/NavBar';
 import SideDrawer from '../../components/NavBar/SideDrawer/SideDrawer';
 import HeroSection from '../../components/HeroSection/HeroSection';
+import TextSection from '../../components/TextSection/TextSection';
+import Footer from '../../components/Footer/Footer';
+
 
 class Layout extends Component {
     state = {
@@ -68,15 +71,23 @@ class Layout extends Component {
                             toggleClicked={this.sideDrawerOpenHandler}
                             toggleIsOpen={this.state.sideDrawer.isOpen} />
                     </header>
-
+                    <HtmlComment text="Main Content" />
                     <main className={classes.Content}>
-                        <HtmlComment text="Sub Section One" />
+                        <HtmlComment text="Hero Section" />
                         <section>
                             <HeroSection
-                                isPlay={this.state.heroSection.isPlay} 
+                                isPlay={this.state.heroSection.isPlay}
                                 btnVideoClicked={this.heroSectionPlayVideoHandler}
                                 btnCancelClicked={this.heroSectionCloseVideoHandler} />
                         </section>
+                        <HtmlComment text="Text Section" />
+                        <section>
+                            <TextSection />
+                        </section>
+                        <HtmlComment text="Footer" />
+                        <footer className={classes.Footer}>
+                            <Footer />
+                        </footer>
                     </main>
                 </div>
             </React.Fragment>

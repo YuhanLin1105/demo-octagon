@@ -14,6 +14,17 @@
     background-color: #fff;
   }
 
+  main section{
+    position: relative;
+  }
+
+  /* CSS support for React-slick carousel with flexbox  */
+  * {
+    min-height: 0;
+    min-width: 0;
+  }
+
+
   /* CSS flexbox full-height app with fixed header */
   html{
     height:100%
@@ -36,5 +47,8 @@
     position: relative;/* need this to position inner content */
     overflow-y: auto; 
     border-top: 1px solid #044da1;
+  }
+  .Footer{
+    background: #ddd;
   }
 
