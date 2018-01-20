@@ -1,44 +1,34 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 import classes from './HeroSection.css'
 import poster from '../../assets/images/doosan_poster.png';
 import Button from '../UI/Button/Button';
-const HeroSection = (props) => {
-    const text = {
-        Heading: " building your tomorrow ",
-        Hightlight: "today",
-        Button: "watch video"
+
+class HeroSection extends Component {
+    
+    state={
+        text:{
+            Heading: " building your tomorrow ",
+            Hightlight: "today",
+            Button: "watch video"
+        },
+        isPlay:false
     }
 
+    CloseVideoHandler = () => {
+        this.setState({
+                isPlay: false
+        })
+    }
 
-    let section = null;
-
-    if (props.isPlay) {
-        section = (
-            <div className={classes.bgClickedVideo}>
-                <span 
-                    className={classes.bgCancel}
-                    onClick={props.btnCancelClicked} >X</span>
-                <video
-                    className={classes.bgVideoContent}
-                    autoPlay
-                    controls
-                    id="video-clicked"
-                    poster={poster}
-                    onEnded={props.btnCancelClicked} >
-                    <source
-                        src="https://s3-us-west-2.amazonaws.com/doosan-microsite/doosan_hero_video.mp4"
-                        typeof="video/mp4" />
-                    <source
-                        src="https://s3-us-west-2.amazonaws.com/doosan-microsite/doosan_hero_video.mp4"
-                        typeof="video/ogg" />
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-
-        )
-    } else {
-        section = (
+    PlayVideoHandler = () => {
+        this.setState({
+                isPlay: true
+        })
+    }
+    
+    render(){
+        const defaultView = (
             <div className={classes.Container}>
                 <div className={classes.bgVideo}>
                     <video
@@ -56,25 +46,47 @@ const HeroSection = (props) => {
                         Your browser does not support the video tag.
                 </video>
                 </div>
-
-
                 <div className={classes.HeadingBox}>
                     <p className={classes.Heading}>
-                        {text.Heading}
+                        {this.state.text.Heading}
                         <span className={classes.Hightlight}>
-                            {text.Hightlight}
+                            {this.state.text.Hightlight}
                         </span>
                     </p>
-                    <Button clicked={props.btnVideoClicked} type="btnVideo">{text.Button}</Button>
+                    <Button clicked={this.PlayVideoHandler} type="btnVideo">{this.state.text.Button}</Button>
                 </div>
             </div>
         );
 
+        const watchVideoView=(
+            <div className={classes.bgClickedVideo}>
+                <span 
+                    className={classes.bgCancel}
+                    onClick={this.CloseVideoHandler} >X</span>
+                <video
+                    className={classes.bgVideoContent}
+                    autoPlay
+                    controls
+                    id="video-clicked"
+                    poster={poster}
+                    onEnded={this.CloseVideoHandler} >
+                    <source
+                        src="https://s3-us-west-2.amazonaws.com/doosan-microsite/doosan_hero_video.mp4"
+                        typeof="video/mp4" />
+                    <source
+                        src="https://s3-us-west-2.amazonaws.com/doosan-microsite/doosan_hero_video.mp4"
+                        typeof="video/ogg" />
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        )
+
+        if (this.state.isPlay) {
+            return watchVideoView;
+        } else {
+            return defaultView;
+        }
     }
-
-
-    return section;
-
 }
 
 export default HeroSection;

@@ -6,8 +6,6 @@
     background-color: white;
 }
 
-
-
 /* .fixedTop {
     position: fixed;
     top: 0;
@@ -26,37 +24,44 @@
 @media (min-width: 768px){
     .NavBar{
         height:5.5rem;
+        padding:0 4%;
     }
-    .padLeft
+    /* .padLeft
     {
         padding-left: 4%;
     }
 
     .padRight{
         padding-right: 4%;
-    }
+    } */
 }
 
 
 @media (min-width: 1024px){
-    .padLeft
+    .NavBar{
+        padding: 0 5%;
+    }
+    /* .padLeft
     {
         padding-left: 5%;
     }
 
     .padRight{
         padding-right: 5%;
-    }
+    } */
 }
 
 
 @media (min-width: 1440px){
-    .padLeft
+    .NavBar{
+        padding: 0 6%;
+    }
+    /* .padLeft
      {
         padding-left: 6%;
     }
 
     .padRight{
         padding-right: 6%;
-    }
+    } */
 }

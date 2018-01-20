@@ -4,35 +4,13 @@ import classes from './Layout.css';
 import HtmlComment from '../../components/HtmlComment/HtmlComment';
 import NavBar from '../../components/NavBar/NavBar';
 import SideDrawer from '../../components/NavBar/SideDrawer/SideDrawer';
-import HeroSection from '../../components/HeroSection/HeroSection';
-import TextSection from '../../components/TextSection/TextSection';
 import Footer from '../../components/Footer/Footer';
-
 
 class Layout extends Component {
     state = {
         sideDrawer: {
             isOpen: false
         },
-        heroSection: {
-            isPlay: false
-        }
-    }
-
-    heroSectionCloseVideoHandler = () => {
-        this.setState({
-            heroSection: {
-                isPlay: false
-            }
-        })
-    }
-
-    heroSectionPlayVideoHandler = () => {
-        this.setState({
-            heroSection: {
-                isPlay: true
-            }
-        })
     }
 
     sideDrawerCloseHandler = () => {
@@ -53,11 +31,10 @@ class Layout extends Component {
         });
     }
 
-
     render() {
         return (
             <React.Fragment>
-
+                
                 <HtmlComment text="Main Container" />
                 <div className={classes.Container}>
 
@@ -67,23 +44,14 @@ class Layout extends Component {
                     <HtmlComment text="NavBar" />
                     <header className={classes.Header}>
                         <NavBar
-                            fixedTop
                             toggleClicked={this.sideDrawerOpenHandler}
                             toggleIsOpen={this.state.sideDrawer.isOpen} />
                     </header>
+
                     <HtmlComment text="Main Content" />
                     <main className={classes.Content}>
-                        <HtmlComment text="Hero Section" />
-                        <section>
-                            <HeroSection
-                                isPlay={this.state.heroSection.isPlay}
-                                btnVideoClicked={this.heroSectionPlayVideoHandler}
-                                btnCancelClicked={this.heroSectionCloseVideoHandler} />
-                        </section>
-                        <HtmlComment text="Text Section" />
-                        <section>
-                            <TextSection />
-                        </section>
+                        {this.props.children}
+
                         <HtmlComment text="Footer" />
                         <footer className={classes.Footer}>
                             <Footer />
@@ -92,7 +60,6 @@ class Layout extends Component {
                 </div>
             </React.Fragment>
         );
-
     };
 };
 

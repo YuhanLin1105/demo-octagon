@@ -9,13 +9,11 @@ const navBar = (props) => {
 
     return (
         <div className={classes.NavBar}>
-            <div className={classes.padLeft}>
-                <Logo />
-            </div>
+            <Logo />
             <DrawerToggle
                 clicked={props.toggleClicked}
                 isOpen={props.toggleIsOpen} />
-            <nav className={[classes.padRight, classes.notSmSreen].join(' ')}>
+            <nav className={classes.notSmSreen}>
                 <NavItems />
             </nav>
         </div>
