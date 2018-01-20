@@ -35,13 +35,7 @@ class Layout extends Component {
         return (
             <React.Fragment>
                 <react-comment> Main Container </react-comment>
-                <div className={classes.Container}>
-
-                    {/* <react-comment> SideDrawer </react-comment>
-                    <SideDrawer 
-                        isOpen={this.state.sideDrawer.isOpen}
-                        closeModal={this.sideDrawerCloseHandler}
-                        pageChange={this.props.pageChange}/> */}
+                <div className={classes.Container}> 
 
                     <react-comment> NavBar </react-comment>
                     <header className={classes.Header}>
@@ -58,7 +52,7 @@ class Layout extends Component {
                     <react-comment> Main Content </react-comment>
                     <main className={classes.Content}>
 
-                        <div>
+                        <div className={classes.SectionContent}>
                             {this.props.children}
                         </div>
 

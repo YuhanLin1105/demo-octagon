@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import ContactSection from '../../components/ContactSection/ContactSection';
+import ContactSection from './ContactSection/ContactSection';
 
 class ContactPage extends Component {
 

@@ -63,8 +63,7 @@
 @media (min-width: 768px){
     .Container{
         justify-content:space-between;
-        /* align-items: center; */
-        padding:8% 18%;
+        padding:15% 18%;
         flex-direction: row;
     }
 
@@ -111,7 +110,5 @@
         line-height: 2.83;
         letter-spacing: 1px;
         font-size: 1.5rem;
-    }
-    .ImgContent{
     }
 }

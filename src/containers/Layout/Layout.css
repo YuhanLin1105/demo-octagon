@@ -18,13 +18,6 @@
     position: relative;
   }
 
-  /* CSS support for React-slick carousel with flexbox  */
-  * {
-    min-height: 0;
-    min-width: 0;
-  }
-
-
   /* CSS flexbox full-height app with fixed header */
   html{
     height:100%
@@ -38,18 +31,23 @@
     flex-direction: column;
   }
   .Header{
-    position: relative;
     z-index: 1030;
     flex:0 0 auto;
   }
   .Content{
-    /* height: 100%; */
-    flex:  0 1 auto;
+    flex:1 1 auto;
     position: relative;/* need this to position inner content */
     overflow-y: auto; 
     border-top: 1px solid #044da1;
+    display:flex;
+    flex-direction: column;
   }
+  .SectionContent{
+    /* margin:auto 0; */
+  }
+
   .Footer{
+    /* margin-top: auto; */
     background: #ddd;
   }
 
