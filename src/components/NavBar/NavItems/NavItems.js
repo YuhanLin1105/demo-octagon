@@ -1,22 +1,45 @@
 import React from 'react';
 
-import classes from './NavItems.css'
+import classes from './NavItems.css';
 import Navitem from './NavItem/NavItem';
+import * as pageName from '../../../constant/pageName';
 
-const NavItems = (props) =>{
-    let styles=[classes.NavItems];
+const NavItems = (props) => {
+    let styles = [classes.NavItems];
 
-    if(props.col){
+    if (props.col) {
         styles.push(classes.col);
-    }else {
+    } else {
         styles.push(classes.row);
     }
 
+    const navConfig = [
+        {
+            id: pageName.PAGE_LANDING,
+            text: "Home",
+            clicked: props.pageChange ? props.pageChange : () => null
+        },
+        {
+            id: pageName.PAGE_CONTACT,
+            text: "Contact",
+            clicked: props.pageChange ? props.pageChange : () => null
+        },
+    ]
 
-    return(
+    const _navItems = navConfig.map(item => {
+        // console.log(item.clicked);
+        return (
+            <Navitem
+                id={item.id}
+                clicked={item.clicked}>
+                {item.text}
+            </Navitem>
+        )
+    })
+
+    return (
         <ul className={styles.join(' ')}>
-            <Navitem>Our partnership</Navitem>
-            <Navitem>Our profile</Navitem>
+            {_navItems}
         </ul>
     );
 };

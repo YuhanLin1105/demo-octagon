@@ -1,23 +1,35 @@
 import React from 'react';
 
-import classes from './DrawerToggle.css'
-import spriteSVG from '../../../../assets/images/sprite.svg'
+import classes from './DrawerToggle.css';
+import SideDrawer from '../SideDrawer';
+import spriteSVG from '../../../../assets/images/sprite.svg';
 
 const drawerToggle = (props) => {
 
-    let Icon = props.isOpen
-        ? (<svg className={classes.Icon}>
-            <use xlinkHref={spriteSVG + "#icon-cross"}></use>
-        </svg>)
-        : (<svg className={classes.Icon}>
-            <use xlinkHref={spriteSVG + "#icon-menu"}></use>
-        </svg>)
+    let iconCross=[classes.Icon];
+    let iconMenu=[classes.Icon];
 
+    if(props.isopen){
+        iconMenu.push(classes.Hide)
+    }else{
+        iconCross.push(classes.Hide)
+    }
 
     return (
-        <button className={classes.Button} onClick={props.clicked}>
-            {Icon}
-        </button>
+        <React.Fragment>
+            <button className={classes.Button} onClick={props.clicked}>
+                <svg className={iconCross.join(' ')}>
+                    <use xlinkHref={spriteSVG + "#icon-cross"}></use>
+                </svg>
+                <svg className={iconMenu.join(' ')}>
+                    <use xlinkHref={spriteSVG + "#icon-menu"}></use>
+                </svg>
+            </button>
+            <react-comment> SideDrawer </react-comment>
+            <SideDrawer
+                isOpen={props.isOpen}
+                pageChange={props.pageChange} />
+        </React.Fragment>
     );
 };
 

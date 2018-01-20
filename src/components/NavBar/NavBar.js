@@ -12,9 +12,10 @@ const navBar = (props) => {
             <Logo />
             <DrawerToggle
                 clicked={props.toggleClicked}
-                isOpen={props.toggleIsOpen} />
+                isOpen={props.toggleIsOpen} 
+                pageChange={props.pageChange}/>
             <nav className={classes.notSmSreen}>
-                <NavItems />
+                <NavItems pageChange={props.pageChange} />
             </nav>
         </div>
     );

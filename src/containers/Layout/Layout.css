@@ -38,6 +38,7 @@
     flex-direction: column;
   }
   .Header{
+    position: relative;
     z-index: 1030;
     flex:0 0 auto;
   }

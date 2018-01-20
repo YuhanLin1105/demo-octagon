@@ -16,6 +16,10 @@
     fill:#044da1;
 }
 
+.Hide{
+    display: none;
+}
+
 @media (min-width: 768px) {
     .Button {
         display: none;

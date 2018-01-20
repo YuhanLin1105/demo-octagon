@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 
 import classes from './Layout.css';
-import HtmlComment from '../../components/HtmlComment/HtmlComment';
 import NavBar from '../../components/NavBar/NavBar';
 import SideDrawer from '../../components/NavBar/SideDrawer/SideDrawer';
 import Footer from '../../components/Footer/Footer';
@@ -34,26 +34,36 @@ class Layout extends Component {
     render() {
         return (
             <React.Fragment>
-                
-                <HtmlComment text="Main Container" />
+                <react-comment> Main Container </react-comment>
                 <div className={classes.Container}>
 
-                    <HtmlComment text="SideDrawer" />
-                    <SideDrawer isOpen={this.state.sideDrawer.isOpen} />
+                    {/* <react-comment> SideDrawer </react-comment>
+                    <SideDrawer 
+                        isOpen={this.state.sideDrawer.isOpen}
+                        closeModal={this.sideDrawerCloseHandler}
+                        pageChange={this.props.pageChange}/> */}
 
-                    <HtmlComment text="NavBar" />
+                    <react-comment> NavBar </react-comment>
                     <header className={classes.Header}>
                         <NavBar
+                            pageChange={(page)=>{
+                                this.props.pageChange(page);    
+                                this.sideDrawerCloseHandler();
+                                
+                            }}
                             toggleClicked={this.sideDrawerOpenHandler}
                             toggleIsOpen={this.state.sideDrawer.isOpen} />
                     </header>
 
-                    <HtmlComment text="Main Content" />
+                    <react-comment> Main Content </react-comment>
                     <main className={classes.Content}>
-                        {this.props.children}
 
-                        <HtmlComment text="Footer" />
-                        <footer className={classes.Footer}>
+                        <div>
+                            {this.props.children}
+                        </div>
+
+                        <react-comment> Footer </react-comment>              
+                        <footer className={classes.Footer}>                       
                             <Footer />
                         </footer>
                     </main>

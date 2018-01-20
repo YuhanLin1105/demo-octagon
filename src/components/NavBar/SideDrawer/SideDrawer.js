@@ -13,7 +13,10 @@ const sideDrawer = (props) => {
         <React.Fragment>
             <div className={styles.join(' ')}>
                 <nav className={classes.Nav}>
-                    <NavItems col />
+                    <NavItems 
+                        col  
+                        pageChange={props.pageChange}
+                        />
                 </nav>
             </div>
         </React.Fragment>

@@ -8,7 +8,7 @@ const Footer = (props) => {
         <div className={classes.Container}>
             <div className={classes.ImageLink}>
                 <a href="#" className={classes.btnLogo}>
-                    <img class={classes.btnLogImage} src={footerLogo} alt="Footer Logo" />
+                    <img className={classes.btnLogImage} src={footerLogo} alt="Footer Logo" />
                 </a>
                 <a href="#" className={classes.btnYoutube} title="Site Link (View a new window)">YOUTUBE</a>
                 <a href="#" className={classes.btnRss} title="RSS">RSS</a>
