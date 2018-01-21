@@ -1,24 +1,27 @@
-.Container{
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
-    padding:10% 8%;
-    flex-direction: column;
-    text-align: center;
+.Section{
     background-image: url(../../assets/images/our-partnership-background@2x.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 }
+.Container{
+    composes: Container from '../../styles/shared.css';
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
 
+}
+.ImgContent,
 .TextContent{
-    width:100%;
-    padding: .5rem 0;
+    flex:1 1 auto;
+    padding: 1.2rem 0;
 }
 
 .Heading{
-    font-size: 2.7rem;
-    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
     color:#044da1;
 }
 .Highlight{
@@ -37,16 +40,14 @@
     max-width: 45rem;
     min-width: 30rem;
     min-height: 20rem;
-    width:100%;
+    width: 100%;
     height: 100%;
-
 }
 
-.ImgContent{
-    width:100%;
-    padding: .5rem 0;
-}
 @media (min-width: 375px){
+    .Heading{
+        font-size: 2.7rem;
+    }
     .Detail{
         font-size: 1.2rem;
     }
@@ -55,6 +56,7 @@
 @media (min-width: 425px){
     .Detail{
         font-size: 3vw;
+        margin: 0 10%;
     }
 }
 
@@ -62,28 +64,28 @@
 
 @media (min-width: 768px){
     .Container{
-        justify-content:space-between;
-        padding:15% 18%;
+        justify-content:center;
+        padding:10% 8%;
         flex-direction: row;
+        align-items: stretch;
     }
 
+    .ImgContent,
+    .TextContent{
+        flex:0 1 42%;
+        padding: 0 1.5rem;
+    }
     .Heading {
         text-align: left;
         letter-spacing: -1px;
-        font-size:2.8rem;
+        font-size:2.9rem;
     }
     .Detail{
         text-align: left;
         line-height: 2.83;
         letter-spacing: 1px;
-        font-size: 1.2rem;
-        
-    }
-    .TextContent{
-        flex:0 0 45%;
-    }
-    .ImgContent{
-        flex:0 0 45%;
+        font-size: 1.1rem;
+        margin: 0 0;
     }
 }
 
@@ -91,7 +93,7 @@
 @media (min-width: 1024px){
     .Heading {
         letter-spacing: -1px;
-        font-size:3.5rem;
+        font-size:3.7rem;
     }
     .Detail{
         line-height: 2.83;
@@ -99,10 +101,16 @@
         font-size: 1.4rem;
         
     }
+    .Img{
+        min-width:38rem;
+    }
 }
 
 
 @media (min-width: 1440px){
+    .Container{
+        padding:10% 0%;
+    }
     .Heading {
         font-size: 4rem;
     }

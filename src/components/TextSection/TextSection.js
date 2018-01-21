@@ -11,24 +11,27 @@ const textSection = () => {
     }
 
     return (
-        <div className={classes.Container}>
-            <div className={classes.TextContent}>
-                <div className={classes.Heading}>
-                    {text.heading}
-                    <span className={classes.Highlight}>
-                        {text.hightlight}
-                    </span>
+
+        <section className={classes.Section}>
+            <div className={classes.Container}>
+                <div className={classes.TextContent}>
+                    <div className={classes.Heading}>
+                        {text.heading}
+                        <span className={classes.Highlight}>
+                            {text.hightlight}
+                        </span>
+                    </div>
+                    <div className={classes.Detail}>
+                        {text.detail}
+                    </div>
                 </div>
-                <div className={classes.Detail}>
-                    {text.detail}
+                <div className={classes.ImgContent}>
+                    <svg className={classes.Img}>
+                        <use xlinkHref={spriteSVG + "#doosan-logo-2"}></use>
+                    </svg>
                 </div>
             </div>
-            <div className={classes.ImgContent}>
-                <svg className={classes.Img}>
-                    <use xlinkHref={spriteSVG + "#doosan-logo-2"}></use>
-                </svg>
-            </div>
-        </div>
+        </section>
     );
 };
 

@@ -24,6 +24,15 @@
     You need to enable JavaScript to run this app.
   </noscript>
   <script>
+  /*
+  * <react-comment> Web Component
+  *
+  * @usage
+  *  <react-comment>Comment-text, e.g. [if lte IE 9]><script ... /><![endif]</react-comment>
+  *
+  * @result
+  * <!--Comment-text, e.g. [if lte IE 9]><script ... /><![endif]-->
+  */
     var proto = Object.create(HTMLElement.prototype, {
       name: { get: function () { return 'React HTML Comment'; } },
       createdCallback: {

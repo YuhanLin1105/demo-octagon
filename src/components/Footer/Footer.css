@@ -1,35 +1,36 @@
+.Footer{
+    background: #ddd;
+}
+
 .Container{
+    composes:Container from '../../styles/shared.css';
     padding: 4rem 1.5rem;
     background-color: #ddd;
     color: black;
     font-size: 1.2rem;
     text-align: center;
-    margin: auto;
 }
 
-.ImageLink{
+/* .ImageLink{
     width:100%;
     margin: 0.6rem 0;
-}
-
-.TextLink{
-
-    
-}
+} */
 
 .TextLink a{
     display: inline-block;
 }
 
-
+.ImageLink,
 .TextLink a,
-.TextLink p{
+.TextLink p {
+    margin: 0.6rem 0;
     margin:0.6rem 0;
 }
 
-.TextLinkPrivate{
+.TextLink .TextLinkPrivate{
     white-space: nowrap;
     font-weight: bold;
+    display: block;
 }
 
 
@@ -65,9 +66,11 @@
 
 @media (min-width:768px){
     .Container{
-        width:75rem;
         font-size: 1.2rem;
         text-align: right;
+    }
+    .TextLink .TextLinkPrivate{
+        display: inline-block;
     }
     .btnLogo{
         display: block;
@@ -75,17 +78,17 @@
     }
 }
 
-@media (min-width:992px){
-    .Container{
+/* @media (min-width:992px){ */
+    /* .Container{
         width:97rem;
-    }
-}
+    } */
+/* } */
 
-@media (min-width:1200px){
+/* @media (min-width:1200px){
     .Container{
         width:117rem;
     }
-}
+} */
 
 @media (min-width:1400px){
     .Container{

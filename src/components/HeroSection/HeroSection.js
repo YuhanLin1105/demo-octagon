@@ -29,7 +29,7 @@ class HeroSection extends Component {
     
     render(){
         const defaultView = (
-            <div className={classes.Container}>
+            <section className={classes.Container}>
                 <div className={classes.bgVideo}>
                     <video
                         className={classes.bgVideoContent}
@@ -55,11 +55,11 @@ class HeroSection extends Component {
                     </p>
                     <Button clicked={this.PlayVideoHandler} type="btnVideo">{this.state.text.Button}</Button>
                 </div>
-            </div>
+            </section>
         );
 
         const watchVideoView=(
-            <div className={classes.bgClickedVideo}>
+            <section className={classes.bgClickedVideo}>
                 <span 
                     className={classes.bgCancel}
                     onClick={this.CloseVideoHandler} >X</span>
@@ -78,7 +78,7 @@ class HeroSection extends Component {
                         typeof="video/ogg" />
                     Your browser does not support the video tag.
                 </video>
-            </div>
+            </section>
         )
 
         if (this.state.isPlay) {
