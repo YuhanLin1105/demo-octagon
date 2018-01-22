@@ -91,6 +91,7 @@
 
 
 @media (min-width: 1024px){
+
     .Heading {
         letter-spacing: -1px;
         font-size:3.7rem;
@@ -111,6 +112,12 @@
     .Container{
         padding:10% 0%;
     }
+
+    .ImgContent,
+    .TextContent{
+        flex:0 1 35%;
+    }
+    
     .Heading {
         font-size: 4rem;
     }

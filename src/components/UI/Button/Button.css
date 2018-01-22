@@ -1,23 +1,37 @@
 .btn{
     font-family: inherit;
     background: transparent;
-    padding: 6px 12px;
-    font-size: 1.2rem; 
     display: inline-block;
-    color:#009ed9;
-    border: solid 1px #009ed9;
     border-radius: 34.5px;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 2px; 
     cursor: pointer;
+    border:none;
 }
 
 
 
 .btnVideo{
+    color:#009ed9;
+    border: solid 1px #009ed9;
+    font-size: 1.2rem; 
+    padding: 6px 12px;
     width: 22rem;
     height: 5.5rem;
     border: solid 1px #fff;
     color:#fff;
+}
+
+.btnForm{
+    font-size: 1.6rem;
+    background-color: #044da1;
+    padding:1.5rem 5rem;
+    color:#fff;
+    outline:none;
+}
+
+.btnForm:hover,
+.btnForm:active{
+    background-color:#009ed9;
 }

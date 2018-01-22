@@ -7,7 +7,7 @@ const textSection = () => {
     const text = {
         heading: "MLB ",
         hightlight: "PARTNERSHIP",
-        detail: "Doosan, a global leader in the Infrastructure Support Business, is a proud partner of Major League Baseball and is the first brand in MLB history to be the Presenting Sponsor of the American League Division Series (ALDS). Through the MLB partnership, Doosan hopes to elevate brand awareness and showcase the company’s leading technologies and products to the US market."
+        detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat"
     }
 
     return (

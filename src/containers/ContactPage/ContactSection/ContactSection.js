@@ -1,82 +1,172 @@
 import React, { Component } from 'react';
 
 import classes from './ContactSection.css';
+import Input from '../../../components/UI/Input/Input';
+import Button from '../../../components/UI/Button/Button';
+import {updateObject} from '../../../shared/utilities';
 
 class ContactSection extends Component {
     state = {
         contactForm: {
-            FirstName: {
+            firstName: {
                 elementType: 'input',
                 elementConfig: {
-                    type: 'text',
-                    placeholder: "First Name"
-                },
-                validation: {
-                    required: true,
-                    isFirstName: true,
+                    input: {
+                        id: 'fname',
+                        type: 'text',
+                        placeholder: "First name",
+                        required: true,
+                        pattern: `[a-zA-z]+`,
+                        onChange:(event)=>{return this.inputChangedHandler(event,'firstName') }
+
+                    },
+                    label: {
+                        htmlFor: 'fname',
+                        text: 'Characters only'
+                    },
                 },
                 value: '',
-                valid: false,
-                touched: false
             },
-            inputEmail: {
+            lastName: {
                 elementType: 'input',
                 elementConfig: {
-                    type: 'text',
-                    placeholder: "Your email"
+                    input: {
+                        id: 'lname',
+                        type: 'text',
+                        placeholder: "Last name",
+                        required: true,
+                        pattern: `[a-zA-Z'-]+`,
+                        onChange:(event)=>{return this.inputChangedHandler(event, 'lastName') }
+
+                    },
+                    label: {
+                        htmlFor: 'lname',
+                        text: 'Characters, hyphens and apostrophes only'
+                    },
                 },
                 value: '',
-                validation: {
-                    required: true,
-                    isEmail: true
-                },
-                valid: false,
-                touched: false
             },
-            LastName: {
+            email: {
                 elementType: 'input',
                 elementConfig: {
-                    type: 'text',
-                    placeholder: "Last Name"
+                    input: {
+                        id: 'emailAddress',
+                        type: 'email',
+                        placeholder: "Email",
+                        required: true,
+                        pattern:"^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$",
+                        onChange:(event)=>{return this.inputChangedHandler(event, 'email') }
+
+                    },
+                    label: {
+                        htmlFor: 'emailAddress',
+                        text: 'Email address only'
+                    },
+                },
+                value: '', 
+            },
+            zipCode: {
+                elementType: 'input',
+                elementConfig: {
+                    input: {
+                        id: 'zipCode',
+                        type: 'input',
+                        placeholder: "Zip code",
+                        required: true,
+                        pattern: `^\\d{5}(?:[-\\s]\\d{4})?$`,
+                        onChange:(event)=>{return this.inputChangedHandler(event, 'zipCode') }
+                        
+                    },
+                    label: {
+                        htmlFor: 'zoipCode',
+                        text: 'US zip code only'
+                    },
                 },
                 value: '',
-                validation: {
-                    required: true
-                },
-                valid: false,
-                touched: false
             },
 
-            inputZipCode: {
-                elementType: 'input',
-                elementConfig: {
-                    type: 'text',
-                    placeholder: "Postal code"
-                },
-                validation: {
-                    required: true,
-                    minLength: 5,
-                    maxLength: 5,
-                    isNumeric: true
-                },
-                value: '',
-                valid: false,
-                touched: false
-            },
-            deliveryMethod: {
+            usStates: {
                 elementType: 'select',
                 elementConfig: {
-                    type: 'select',
-                    options: ['fastest', 'cheapest']
+                    select: {
+                        id: 'usStates',
+                        required: true,
+                        onChange:(event)=>{return this.inputChangedHandler(event, 'usStates') }
+                        
+                    },
+                    defaultOption:{
+                        selected:true,
+                        disabled:true,
+                        hidden:true,
+                        text:'U.S states'
+                    },
+                    options: {
+                        "AL": "Alabama",
+                        "AK": "Alaska",
+                        "AS": "American Samoa",
+                        "AZ": "Arizona",
+                        "AR": "Arkansas",
+                        "CA": "California",
+                        "CO": "Colorado",
+                        "CT": "Connecticut",
+                        "DE": "Delaware",
+                        "DC": "District Of Columbia",
+                        "FM": "Federated States Of Micronesia",
+                        "FL": "Florida",
+                        "GA": "Georgia",
+                        "GU": "Guam",
+                        "HI": "Hawaii",
+                        "ID": "Idaho",
+                        "IL": "Illinois",
+                        "IN": "Indiana",
+                        "IA": "Iowa",
+                        "KS": "Kansas",
+                        "KY": "Kentucky",
+                        "LA": "Louisiana",
+                        "ME": "Maine",
+                        "MH": "Marshall Islands",
+                        "MD": "Maryland",
+                        "MA": "Massachusetts",
+                        "MI": "Michigan",
+                        "MN": "Minnesota",
+                        "MS": "Mississippi",
+                        "MO": "Missouri",
+                        "MT": "Montana",
+                        "NE": "Nebraska",
+                        "NV": "Nevada",
+                        "NH": "New Hampshire",
+                        "NJ": "New Jersey",
+                        "NM": "New Mexico",
+                        "NY": "New York",
+                        "NC": "North Carolina",
+                        "ND": "North Dakota",
+                        "MP": "Northern Mariana Islands",
+                        "OH": "Ohio",
+                        "OK": "Oklahoma",
+                        "OR": "Oregon",
+                        "PW": "Palau",
+                        "PA": "Pennsylvania",
+                        "PR": "Puerto Rico",
+                        "RI": "Rhode Island",
+                        "SC": "South Carolina",
+                        "SD": "South Dakota",
+                        "TN": "Tennessee",
+                        "TX": "Texas",
+                        "UT": "Utah",
+                        "VT": "Vermont",
+                        "VI": "Virgin Islands",
+                        "VA": "Virginia",
+                        "WA": "Washington",
+                        "WV": "West Virginia",
+                        "WI": "Wisconsin",
+                        "WY": "Wyoming"
+                    }
                 },
-                value: 'fastest',
-                validation: {},
-                valid: true
+                value:''
+            },
 
-            }
         },
         formValid: false
-
     }
 
     // orderHandler = (event) => {
@@ -98,33 +188,28 @@ class ContactSection extends Component {
     //     this.props.onBurgerPurchasing(order,this.props.token);
     // }
 
-    //     inputChangedHandler = (event, id) => {
-    //         const updatedFormElement = updateObject(this.state.contactForm
-    // [id], {
-    //             value: event.target.value,
-    //             valid: checkValidity(event.target.value, this.state.contactForm
-    //     [id].validation),
-    //             touched: true
-    //         });
+        inputChangedHandler = (event, key) => {
+            const updatedFormElement = updateObject(this.state.contactForm[key], {
+                value: event.target.value,
+            });
 
-    //         const updatedcontactForm = updateObject(this.state.contactForm
-    // , {
-    //             [id]: updatedFormElement
-    //         });
+            const updatedcontactForm = updateObject(this.state.contactForm, {
+                [key]: updatedFormElement
+            });
 
-    //         let formValid=true;
+        //     let formValid=true;
 
-    //         for(let key in updatedcontactForm){
-    //             if(!updatedcontactForm
-    //     [key].valid){
-    //                 formValid=false;
-    //             }
-    //         }
+        //     for(let key in updatedcontactForm){
+        //         if(!updatedcontactForm
+        // [key].valid){
+        //             formValid=false;
+        //         }
+        //     }
 
-    //         this.setState({contactForm
-    // : updatedcontactForm
-    // , formValid:formValid});
-    //     }
+            this.setState({
+                contactForm: updatedcontactForm,
+                });
+        }
 
     // render() {
 
@@ -162,10 +247,37 @@ class ContactSection extends Component {
     // }
 
     render() {
+        const formElement = Object.keys(this.state.contactForm).map(key => {
+            return (
+                <Input
+                    key={key}
+                    inputtype={this.state.contactForm[key].elementType}
+                    value={this.state.contactForm[key].value}
+                    {...this.state.contactForm[key].elementConfig}
+                />
+            )
+        })
+
         return (
-            <div>
-                dsf
-            </div>
+            <section className={classes.Section}>
+                <div className={classes.Container}>
+                    <form className={classes.Form}>
+                        <div className={classes.Heading}>
+                            GET IN TOUCH
+                        </div>
+
+                        {formElement}
+                       
+                        <div className={classes.Button}>
+                            <Button
+                                type='btnForm'>SUBMIT</Button>
+                        </div>
+                    </form>
+                    <div>
+                        IMG
+                </div>
+                </div>
+            </section>
         );
     }
 }

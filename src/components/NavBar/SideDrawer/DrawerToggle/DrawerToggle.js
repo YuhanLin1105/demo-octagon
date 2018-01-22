@@ -25,7 +25,6 @@ const drawerToggle = (props) => {
                     <use xlinkHref={spriteSVG + "#icon-menu"}></use>
                 </svg>
             </button>
-            <react-comment> SideDrawer </react-comment>
             <SideDrawer
                 isOpen={props.isOpen}
                 pageChange={props.pageChange} />

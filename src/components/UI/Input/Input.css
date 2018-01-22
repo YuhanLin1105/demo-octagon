@@ -1,0 +1,48 @@
+.Input{
+    font-size: 1.8rem;
+    font-family: inherit;
+    padding:1rem 1.5rem;
+    border-radius: 2px;
+    background-color: rgba(255,255,255,.6);
+    border:none;
+    border-bottom: 3px solid transparent;
+    width:100%;
+    display: block;
+}
+
+.Input:focus{
+    outline:none;
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.1);
+    border-bottom: 3px solid #044da1;
+}
+
+.Input:focus:invalid{
+    border-bottom: 3px solid #e95224;
+}
+
+.Input:focus + .Label{
+    visibility: visible;
+}
+
+.Label{
+    font-size: 1.4rem;
+    margin-top: .5rem;
+    margin-left: 1.5rem;
+    visibility: hidden;
+    color:#009ed9;
+    display: block;
+}
+
+.InputSelect{
+    font-size: 1.8rem;
+    font-family: inherit;
+    padding:1rem 1.2rem;
+    border-radius: 2px;
+    background-color: rgba(255,255,255,.6);
+    border:none;
+    width:100%;
+    display: block;
+}
+.InputGroup:not(:last-child){
+    margin-bottom: 1rem;
+}

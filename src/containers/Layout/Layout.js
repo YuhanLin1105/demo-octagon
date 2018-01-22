@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 
 import classes from './Layout.css';
 import NavBar from '../../components/NavBar/NavBar';
-import SideDrawer from '../../components/NavBar/SideDrawer/SideDrawer';
 import Footer from '../../components/Footer/Footer';
 
 class Layout extends Component {
@@ -34,10 +33,7 @@ class Layout extends Component {
     render() {
         return (
             <React.Fragment>
-                <react-comment> Main Container </react-comment>
                 <div className={classes.Container}> 
-
-                    <react-comment> NavBar </react-comment>
                     <header className={classes.Header}>
                         <NavBar
                             pageChange={(page)=>{
@@ -48,18 +44,9 @@ class Layout extends Component {
                             toggleClicked={this.sideDrawerOpenHandler}
                             toggleIsOpen={this.state.sideDrawer.isOpen} />
                     </header>
-
-                    <react-comment> Main Content </react-comment>
                     <main className={classes.Content}>
-
-                        <div className={classes.SectionContent}>
-                            {this.props.children}
-                        </div>
-
-                        <react-comment> Footer </react-comment>              
-                        <footer className={classes.Footer}>                       
-                            <Footer />
-                        </footer>
+                            {this.props.children}   
+                        <Footer />
                     </main>
                 </div>
             </React.Fragment>

@@ -2,20 +2,23 @@ import React from 'react';
 
 import classes from './Button.css';
 
-const Button =(props) =>{
+const Button = (props) => {
 
-    let btnStyle=[classes.btn]
-    
+    let btnStyle = [classes.btn]
+
     switch (props.type) {
         case "btnVideo":
             btnStyle.push(classes.btnVideo)
             break;
-    
+        case "btnForm":
+            btnStyle.push(classes.btnForm)
+            break;
+
         default:
             break;
     }
     return (
-        <button 
+        <button
             className={btnStyle.join(' ')}
             onClick={props.clicked} >
             {props.children}

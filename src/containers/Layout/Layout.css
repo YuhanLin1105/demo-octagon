@@ -14,9 +14,9 @@
     background-color: #fff;
   }
 
-  main section{
+  /* main section{
     position: relative;
-  }
+  } */
 
   /* CSS flexbox full-height app with fixed header */
   html{
@@ -39,15 +39,8 @@
     position: relative;/* need this to position inner content */
     overflow-y: auto; 
     border-top: 1px solid #044da1;
-    display:flex;
-    flex-direction: column;
-  }
-  .SectionContent{
-    /* margin:auto 0; */
-  }
-
-  .Footer{
-    /* margin-top: auto; */
-    background: #ddd;
+    background-color: #ddd;
+    /* display:flex;
+    flex-direction: column; */
   }
 

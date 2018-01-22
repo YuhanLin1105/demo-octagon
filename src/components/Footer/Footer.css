@@ -16,15 +16,22 @@
     margin: 0.6rem 0;
 } */
 
-.TextLink a{
-    display: inline-block;
-}
 
 .ImageLink,
-.TextLink a,
 .TextLink p {
     margin: 0.6rem 0;
-    margin:0.6rem 0;
+    margin: 0.6rem 0;
+}
+
+.TextLink a{
+    margin: 0.6rem 0;
+    margin: 0.6rem 0;
+    text-decoration: none;
+    color:#000;
+}
+
+.TextLink a:hover{
+    text-decoration: underline;
 }
 
 .TextLink .TextLinkPrivate{

@@ -1,3 +1,48 @@
-.Container{
-    
+.Section{
+    background-image: url(../../../assets/images/our-profile-background@3x.jpg);
+    /* background-image:linear-gradient(to right bottom, #fff,#ddd); */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    /* padding: 15rem 0; */
 }
+
+.Container{
+    min-height: 50rem;
+    background-color: #ddd;
+    composes:Container from '../../../styles/shared.css';
+    background-image:linear-gradient(to right bottom, #fff,#ddd);
+    /* background-image: url(../../../assets/images/our-profile-background@3x.jpg); */
+    border-radius: 3px;
+    /* box-shadow: 0 1.5rem 3rem rgba(0,0,0,.15) */
+
+}
+
+.Form{
+    display:flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.Heading{
+    font-size: 2.5rem;
+    color:#044da1;
+    font-weight: bold;
+    margin-left: 1.5rem;
+    margin-top: .7rem;
+    margin-bottom: 2rem;
+}
+
+
+.Button{
+    margin-top: 2rem;
+    /* margin-left: 1.5rem; */
+}
+
+@media (min-width:768px){
+    .Section{
+        padding:5rem 0;
+    }
+}
+

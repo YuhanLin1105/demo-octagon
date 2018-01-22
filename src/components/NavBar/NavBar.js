@@ -9,11 +9,13 @@ const navBar = (props) => {
 
     return (
         <div className={classes.NavBar}>
-            <Logo />
+            <a className={classes.Link} href="#1234">
+                <Logo />
+            </a>
             <DrawerToggle
                 clicked={props.toggleClicked}
-                isOpen={props.toggleIsOpen} 
-                pageChange={props.pageChange}/>
+                isOpen={props.toggleIsOpen}
+                pageChange={props.pageChange} />
             <nav className={classes.notSmSreen}>
                 <NavItems pageChange={props.pageChange} />
             </nav>

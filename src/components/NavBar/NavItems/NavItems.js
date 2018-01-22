@@ -21,7 +21,7 @@ const NavItems = (props) => {
         },
         {
             id: pageName.PAGE_CONTACT,
-            text: "Contact",
+            text: "Contact us",
             clicked: props.pageChange ? props.pageChange : () => null
         },
     ]
@@ -30,6 +30,7 @@ const NavItems = (props) => {
         // console.log(item.clicked);
         return (
             <Navitem
+                key={item.id}
                 id={item.id}
                 clicked={item.clicked}>
                 {item.text}

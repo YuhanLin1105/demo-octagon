@@ -6,6 +6,11 @@
     background-color: white;
 }
 
+.Link{
+    text-decoration: none;
+    padding:1rem 1.5rem;
+}
+
 /* .fixedTop {
     position: fixed;
     top: 0;

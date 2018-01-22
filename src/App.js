@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 
 import Layout from './containers/Layout/Layout';
 import LandingPage from './containers/LandingPage/LandingPage';
@@ -8,15 +9,18 @@ import * as pageName from './constant/pageName';
 class App extends Component {
 
   state = {
-    currentPage: pageName.PAGE_LANDING,
+    currentPage: pageName.PAGE_CONTACT,
 
   }
 
+
+
   pageChangeHandler = (page) => {
-    console.log(page);
+
     this.setState({
       currentPage: page
-    })
+    });
+    console.log('change');
   }
 
   render() {
