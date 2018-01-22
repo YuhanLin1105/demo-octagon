@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 import classes from './ContactSection.css';
 import Input from '../../../components/UI/Input/Input';
 import Button from '../../../components/UI/Button/Button';
-import {updateObject} from '../../../shared/utilities';
+import { updateObject } from '../../../shared/utilities';
+import imgProfileHero from '../../../assets/images/our_profile_hero@3x.jpg';
+import axios from '../../../axios-instance';
 
 class ContactSection extends Component {
     state = {
@@ -17,7 +19,7 @@ class ContactSection extends Component {
                         placeholder: "First name",
                         required: true,
                         pattern: `[a-zA-z]+`,
-                        onChange:(event)=>{return this.inputChangedHandler(event,'firstName') }
+                        onChange: (event) => { return this.inputChangedHandler(event, 'firstName') }
 
                     },
                     label: {
@@ -36,7 +38,7 @@ class ContactSection extends Component {
                         placeholder: "Last name",
                         required: true,
                         pattern: `[a-zA-Z'-]+`,
-                        onChange:(event)=>{return this.inputChangedHandler(event, 'lastName') }
+                        onChange: (event) => { return this.inputChangedHandler(event, 'lastName') }
 
                     },
                     label: {
@@ -54,8 +56,8 @@ class ContactSection extends Component {
                         type: 'email',
                         placeholder: "Email",
                         required: true,
-                        pattern:"^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$",
-                        onChange:(event)=>{return this.inputChangedHandler(event, 'email') }
+                        pattern: "^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$",
+                        onChange: (event) => { return this.inputChangedHandler(event, 'email') }
 
                     },
                     label: {
@@ -63,7 +65,7 @@ class ContactSection extends Component {
                         text: 'Email address only'
                     },
                 },
-                value: '', 
+                value: '',
             },
             zipCode: {
                 elementType: 'input',
@@ -74,8 +76,8 @@ class ContactSection extends Component {
                         placeholder: "Zip code",
                         required: true,
                         pattern: `^\\d{5}(?:[-\\s]\\d{4})?$`,
-                        onChange:(event)=>{return this.inputChangedHandler(event, 'zipCode') }
-                        
+                        onChange: (event) => { return this.inputChangedHandler(event, 'zipCode') }
+
                     },
                     label: {
                         htmlFor: 'zoipCode',
@@ -91,14 +93,14 @@ class ContactSection extends Component {
                     select: {
                         id: 'usStates',
                         required: true,
-                        onChange:(event)=>{return this.inputChangedHandler(event, 'usStates') }
-                        
+                        onChange: (event) => { return this.inputChangedHandler(event, 'usStates') }
+
                     },
-                    defaultOption:{
-                        selected:true,
-                        disabled:true,
-                        hidden:true,
-                        text:'U.S states'
+                    defaultOption: {
+                        selected: true,
+                        disabled: true,
+                        hidden: true,
+                        text: 'U.S states'
                     },
                     options: {
                         "AL": "Alabama",
@@ -162,54 +164,56 @@ class ContactSection extends Component {
                         "WY": "Wyoming"
                     }
                 },
-                value:''
+                value: ''
             },
 
         },
-        formValid: false
+        isFormSubmit: false,
+        error: null
     }
 
-    // orderHandler = (event) => {
-    //     event.preventDefault();
+    submitHandler = (event) => {
+        event.preventDefault();
 
-    //     const formData={};
-    //     for(let key in this.state.contactForm){
-    //         formData[key]=this.state.contactForm[key].value;
-    //     }
-
-    //     const order = {
-    //         ingredients: this.props.ings,
-    //         price: this.props.price,
-    //         formData,
-    //         userId:this.props.userId
-
-    //     }
-
-    //     this.props.onBurgerPurchasing(order,this.props.token);
-    // }
-
-        inputChangedHandler = (event, key) => {
-            const updatedFormElement = updateObject(this.state.contactForm[key], {
-                value: event.target.value,
-            });
-
-            const updatedcontactForm = updateObject(this.state.contactForm, {
-                [key]: updatedFormElement
-            });
-
-        //     let formValid=true;
-
-        //     for(let key in updatedcontactForm){
-        //         if(!updatedcontactForm
-        // [key].valid){
-        //             formValid=false;
-        //         }
-        //     }
-
-            this.setState({
-                contactForm: updatedcontactForm,
-                });
+        const formData = {};
+        for (let key in this.state.contactForm) {
+            formData[key] = this.state.contactForm[key].value;
         }
+
+        this.setState({
+            isFormSubmit: true
+        });
+
+        axios.post('/NoAuthContactDate.json', formData)
+            .then(response => {
+                this.setState({
+                    isFormSubmit: true
+                });
+            })
+            .catch(err => {
+                console.log(err)
+                this.setState({
+                    isFormSubmit: true,
+                    error: err
+                });
+            });
+
+    }
+
+    inputChangedHandler = (event, key) => {
+        const updatedFormElement = updateObject(this.state.contactForm[key], {
+            value: event.target.value,
+        });
+
+        const updatedcontactForm = updateObject(this.state.contactForm, {
+            [key]: updatedFormElement
+        });
+
+
+        this.setState({
+            contactForm: updatedcontactForm,
+        });
+    }
 
     // render() {
 
@@ -247,35 +251,63 @@ class ContactSection extends Component {
     // }
 
     render() {
-        const formElement = Object.keys(this.state.contactForm).map(key => {
-            return (
-                <Input
-                    key={key}
-                    inputtype={this.state.contactForm[key].elementType}
-                    value={this.state.contactForm[key].value}
-                    {...this.state.contactForm[key].elementConfig}
-                />
+        let formContent = (
+            <div className={classes.Heading}>
+                Thank you for your information!
+            </div>
+        );
+
+        if (!this.state.isFormSubmit) {
+            const formElement = Object.keys(this.state.contactForm).map(key => {
+                return (
+                    <Input
+                        key={key}
+                        inputtype={this.state.contactForm[key].elementType}
+                        value={this.state.contactForm[key].value}
+                        {...this.state.contactForm[key].elementConfig}
+                    />
+                )
+            });
+
+            formContent = (
+                <React.Fragment>
+                    <div className={classes.Heading}>
+                        GET IN TOUCH
+                    </div>
+                    {formElement}
+                    <div className={classes.Button}>
+                        <Button
+                            type='btnForm'>SUBMIT</Button>
+                    </div>
+                </React.Fragment>
             )
-        })
+
+        } else if(this.state.error){
+            formContent = (
+                <div className={classes.Heading}>
+                   {this.state.error.toString()}
+                </div>
+            );
+        }
+
+
+
 
         return (
             <section className={classes.Section}>
                 <div className={classes.Container}>
-                    <form className={classes.Form}>
-                        <div className={classes.Heading}>
-                            GET IN TOUCH
-                        </div>
+                    <form
+                        className={classes.Form}
+                        onSubmit={this.submitHandler}>
 
-                        {formElement}
-                       
-                        <div className={classes.Button}>
-                            <Button
-                                type='btnForm'>SUBMIT</Button>
-                        </div>
+                        {formContent}
+
                     </form>
-                    <div>
-                        IMG
-                </div>
+                    <div className={classes.ImgBox}>
+                        <img
+                            className={classes.Img}
+                            src={imgProfileHero} alt="Our Profile Hero" />
+                    </div>
                 </div>
             </section>
         );

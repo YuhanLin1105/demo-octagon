@@ -16,7 +16,8 @@
     /* background-image: url(../../../assets/images/our-profile-background@3x.jpg); */
     border-radius: 3px;
     /* box-shadow: 0 1.5rem 3rem rgba(0,0,0,.15) */
-
+    display: flex;
+    flex-direction: column;
 }
 
 .Form{
@@ -26,6 +27,7 @@
 }
 
 .Heading{
+    flex:1 1 auto;
     font-size: 2.5rem;
     color:#044da1;
     font-weight: bold;
@@ -40,9 +42,32 @@
     /* margin-left: 1.5rem; */
 }
 
+.ImgBox{
+    display: none;
+}
+
+.Img{
+
+    width: 100%;
+    height: auto;
+}
+
 @media (min-width:768px){
     .Section{
         padding:5rem 0;
     }
-}
+    .Container{
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .ImgBox{
+        flex:1 1 45%;
+        display: block;
+        padding: 5rem 0 5rem 5rem;
+    }
 
+    .Form{
+        flex:1 1 50%;
+    }
+}
