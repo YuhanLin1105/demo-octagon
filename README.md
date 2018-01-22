@@ -19,8 +19,22 @@ Page 2 (Contact form):Page containing a form. The form would have the following 
 * Zip code – US zip validation
 * US States – a drop down list of states
 
+## Project preview
+
+
+## Install
+```
+npm install
+```
+## Run
+```
+npm start
+```
+
+
+
 ## React Components Diagram
-![Diagram](https://github.com/YuhanLin1105/demo-octagon/blob/master/src/assets/images/Untitled%20Diagram.png)
+![Diagram](https://github.com/YuhanLin1105/demo-octagon/blob/master/src/assets/images/readmeImg/React-Diagram.png)
 
 ## Server 
 With limit information I can't figure out what kind of backend architecture you are looking for.
@@ -30,6 +44,7 @@ Here are some thought for this Demo:
 * Due to this process without any Authenticate, I prefer to Validate the data at Front End (ContactSection of the project)and send AJAX post request to the Server API end point like 'XXX/XXX/XXX/contactNoAuth'. 
 * The server recieve the AJAX post request from Front End, validate the data with the Model of contact data, and put them to the Data base.
 
+## installation
 
 
 
@@ -45,3 +60,6 @@ future thought:
 By using SVG sprite, we can use 1 HTTP request for all svgs.( This is good for HTTP/1.1 not HTTP/2 protocol). and style all svgs.
 
 thanks [iconMoon](https://icomoon.io/) for icon.
+
+## License
+The content of this repository is licensed under a [MIT License](https://choosealicense.com/licenses/mit/).
