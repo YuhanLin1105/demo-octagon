@@ -10,8 +10,6 @@ class ContactPage extends Component {
         return (
             <React.Fragment>
                 <ContactSection />
-                <HeroSection />
-                <TextSection />
             </React.Fragment>
         );
     }
