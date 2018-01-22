@@ -215,40 +215,6 @@ class ContactSection extends Component {
         });
     }
 
-    // render() {
-
-    //     let formInputs = [];
-    //     for (let item in this.state.contactForm) {
-    //         formInputs.push({
-    //             id: item,
-    //             config: this.state.contactForm
-    // [item]
-    //         });
-    //     }
-    //     let form = (
-    //         <form onSubmit={this.orderHandler}>
-    //             {formInputs.map((input) => (
-    //                 <Input
-    //                     inputtype={input.config.elementType}
-    //                     elementConfig={input.config.elementConfig}
-    //                     key={input.id}
-    //                     value={input.config.value}
-    //                     invalid={!input.config.valid}
-    //                     touched = {input.config.touched}
-    //                     changed={(event) => { return this.inputChangedHandler(event, input.id) }}
-    //                 />))}
-    //             <Button btnType="Success" disabled={!this.state.formValid}>ORDER</Button>
-    //         </form>
-    //     );
-    //     if (this.props.loading) {
-    //         form = <Spinner />;
-    //     }
-    //     return (<div className={classes.ContactData}>
-    //         <h4>Enter your Contact Data</h4>
-    //         {form}
-    //     </div>
-    //     )
-    // }
 
     render() {
         let formContent = (
