@@ -9,7 +9,7 @@ import * as pageName from './constant/pageName';
 class App extends Component {
 
   state = {
-    currentPage: pageName.PAGE_CONTACT,
+    currentPage: pageName.PAGE_LANDING ,
 
   }
 
