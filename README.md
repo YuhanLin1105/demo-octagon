@@ -20,17 +20,17 @@ Page 2 (Contact form):Page containing a form. The form would have the following 
 * US States – a drop down list of states
 
 ## Project preview
-
+[Demo Link](https://demooctagon.firebaseapp.com/)
 
 ## Install
 ```
+git clone https://github.com/YuhanLin1105/demo-octagon.git
 npm install
 ```
 ## Run
 ```
 npm start
 ```
-
 
 
 ## React Components Diagram
@@ -41,25 +41,9 @@ With limit information I can't figure out what kind of backend architecture you 
 
 Here are some thought for this Demo:
 * The Only business logic for this demo is to send the data of Contact form and get the data on the server and put the data to the database.
-* Due to this process without any Authenticate, I prefer to Validate the data at Front End (ContactSection of the project)and send AJAX post request to the Server API end point like 'XXX/XXX/XXX/contactNoAuth'. 
-* The server recieve the AJAX post request from Front End, validate the data with the Model of contact data, and put them to the Data base.
+* Due to this process without any Authenticate, I prefer to validate the data at Front End (ContactSection of the project)and send AJAX post request to the Server API end point like 'XXX/XXX/XXX/contactNoAuth'. 
+* The server recieve the AJAX post request with data from Front End, validate the data with the Model of contact data, and put them to the Data base.
 
-## installation
-
-
-
-## development experience
-
-using app.js control the page rendering. 
-
-future thought:
-    if the Project is becoming more and more complex, we could use React-Router to rending component with different url and use Redux to control the globle state.
-
-
-
-By using SVG sprite, we can use 1 HTTP request for all svgs.( This is good for HTTP/1.1 not HTTP/2 protocol). and style all svgs.
-
-thanks [iconMoon](https://icomoon.io/) for icon.
 
 ## License
 The content of this repository is licensed under a [MIT License](https://choosealicense.com/licenses/mit/).
