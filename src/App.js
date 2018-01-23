@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 
 import Layout from './containers/Layout/Layout';
 import LandingPage from './containers/LandingPage/LandingPage';
@@ -13,14 +12,10 @@ class App extends Component {
 
   }
 
-
-
   pageChangeHandler = (page) => {
-
     this.setState({
       currentPage: page
     });
-    console.log('change');
   }
 
   render() {
@@ -28,7 +23,6 @@ class App extends Component {
     let page = null;
     switch (this.state.currentPage) {
       case pageName.PAGE_LANDING:
-        console.log("landing");
         page = (
           <Layout pageChange={this.pageChangeHandler}>
             <LandingPage />
@@ -36,7 +30,6 @@ class App extends Component {
         );
         break;
       case pageName.PAGE_CONTACT:
-        console.log("contact");
         page = (
           <Layout pageChange={this.pageChangeHandler}>
             <ContactPage />

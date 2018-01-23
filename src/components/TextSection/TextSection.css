@@ -8,7 +8,7 @@
     composes: Container from '../../styles/shared.css';
     display: flex;
     justify-content:space-between;
-    align-items: center;
+    align-items: stretch;
     flex-direction: column;
     text-align: center;
 
@@ -67,7 +67,7 @@
         justify-content:center;
         padding:10% 8%;
         flex-direction: row;
-        align-items: stretch;
+        align-items: center;
     }
 
     .ImgContent,
@@ -103,7 +103,7 @@
         
     }
     .Img{
-        min-width:38rem;
+        min-height:30rem;
     }
 }
 

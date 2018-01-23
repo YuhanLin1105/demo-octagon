@@ -9,7 +9,7 @@ const drawerToggle = (props) => {
     let iconCross=[classes.Icon];
     let iconMenu=[classes.Icon];
 
-    if(props.isopen){
+    if(props.isOpen){
         iconMenu.push(classes.Hide)
     }else{
         iconCross.push(classes.Hide)
