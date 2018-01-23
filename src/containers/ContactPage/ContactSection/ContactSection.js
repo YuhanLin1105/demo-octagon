@@ -97,6 +97,7 @@ class ContactSection extends Component {
 
                     },
                     defaultOption: {
+                        value:'',
                         selected: true,
                         disabled: true,
                         hidden: true,

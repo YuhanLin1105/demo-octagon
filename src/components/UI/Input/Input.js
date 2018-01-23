@@ -28,7 +28,7 @@ const input = (props) => {
                         className={classes.InputSelect}
                         value={props.value}
                         {...props.select}>
-                        <option {...props.defalutOption}>{props.defaultOption.text}</option>
+                        <option {...props.defaultOption}>{props.defaultOption.text}</option>
                         {Object.keys(props.options).map(key=> (
                             <option key={key} value={key}>{props.options[key]}</option>
                         ))}
