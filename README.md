@@ -36,14 +36,6 @@ npm start
 ## React Components Diagram
 ![Diagram](https://github.com/YuhanLin1105/demo-octagon/blob/master/src/assets/images/readmeImg/React-Diagram.png)
 
-## Server 
-With limit information I can't figure out what kind of backend architecture you are looking for.
-
-Here are some thought for this Demo:
-* The Only business logic for this demo is to send the data of Contact form and get the data on the server and put the data to the database.
-* Due to this process without any Authenticate, I prefer to validate the data at Front End (ContactSection of the project)and send AJAX post request to the Server API end point like 'XXX/XXX/XXX/contactNoAuth'. 
-* The server recieve the AJAX post request with data from Front End, validate the data with the Model of contact data, and put them to the Data base.
-
 
 ## License
 The content of this repository is licensed under a [MIT License](https://choosealicense.com/licenses/mit/).
